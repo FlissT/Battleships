@@ -10,7 +10,7 @@ class Game(object):
         self.ships = []
 
         for x in range(3):
-            battleship = randint (1, 9)
+            battleship = randint (1,9)
             if battleship not in self.ships:
                 self.ships.append(battleship)
     
@@ -33,6 +33,7 @@ class MyWindow(Gtk.Window):
         self.button7 = self.builder.get_object("button7")
         self.button8 = self.builder.get_object("button8")
         self.button9 = self.builder.get_object("button9")
+        
 
         game_label = self.builder.get_object("label3") 
 
@@ -52,6 +53,7 @@ class MyWindow(Gtk.Window):
         self.button7_connection = 0
         self.button8_connection = 0
         self.button9_connection = 0
+        
         
         self.set_title("Battleships!")
         self.msg_label = self.builder.get_object("label2")
@@ -100,7 +102,9 @@ class MyWindow(Gtk.Window):
             if clicked_button == self.button8:
                 guess_ship = 8
             if clicked_button == self.button9:
-                guess_ship = 9                
+                guess_ship = 9
+            
+
 
             if guess_ship in self.guesses:
                 self.msg_label.set_text("You've already guessed that one!")
@@ -383,6 +387,7 @@ class MyWindow(Gtk.Window):
         self.button7_connection = self.button7.connect("clicked", on_click)
         self.button8_connection = self.button8.connect("clicked", on_click)
         self.button9_connection = self.button9.connect("clicked", on_click)
+
         self.pause_loop.run()
         return self.clicked_button
                 
